@@ -7,26 +7,26 @@ package com.keithwedinger
  * Created On: 1/19/18
  */
 class CoderByteChallengesKotlin {
-    fun letterChanges(input: String): String {
+    private fun changeChar(inputChar: Char): Char {
         val lowerCaseVowels = charArrayOf('a', 'e', 'i', 'o', 'u')
-        val inputChars = input.toCharArray()
-        val changedChars = inputChars.map { currentChar ->
-            when (currentChar) {
-                in 'a'..'z', in 'A'..'Z' -> when (currentChar) {
-                    'z' -> 'a'
-                    'Z' -> 'A'
-                    else -> {
-                        val changedChar = (currentChar.toInt() + 1).toChar()
-                        if (lowerCaseVowels.contains(changedChar)) {
-                            Character.toUpperCase(changedChar)
-                        } else {
-                            changedChar
-                        }
+        return when (inputChar) {
+            in 'a'..'z', in 'A'..'Z' -> when (inputChar) {
+                'z' -> 'a'
+                'Z' -> 'A'
+                else -> {
+                    val changedChar = (inputChar.toInt() + 1).toChar()
+                    if (lowerCaseVowels.contains(changedChar)) {
+                        Character.toUpperCase(changedChar)
+                    } else {
+                        changedChar
                     }
                 }
-                else -> currentChar
             }
+            else -> inputChar
         }
-        return changedChars.joinToString("")
+    }
+
+    fun letterChanges(input: String): String {
+        return input.toCharArray().map { changeChar(it) }.joinToString("")
     }
 }
