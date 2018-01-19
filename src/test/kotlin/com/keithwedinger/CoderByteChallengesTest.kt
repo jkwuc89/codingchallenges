@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 
 /**
- *
+ * Tests for CoderByteChallenges and CoderByteChallengesKotlin
  *
  * @author Keith Wedinger <br>
  * Created On: 1/19/18
@@ -12,9 +12,16 @@ import org.junit.jupiter.api.Test
 
 class CoderByteChallengesTest {
     private val coderByteChallenges = CoderByteChallenges()
+    private val coderByteChallengesKotlin = CoderByteChallengesKotlin()
 
     @Test
-    internal fun `LetterChanges with mixed input`() {
+    internal fun `Java letterChanges with mixed input`() {
         Assertions.assertEquals("gvO Ujnft!", coderByteChallenges.letterChanges("fun times!"))
     }
+
+    @Test
+    internal fun `Kotlin letterChanges with mixed input`() {
+        Assertions.assertEquals("gvO Ujnft!", coderByteChallengesKotlin.letterChanges("fun times!"))
+    }
+
 }

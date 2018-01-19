@@ -3,6 +3,12 @@ package com.keithwedinger;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+/**
+ * Java version of CoderByteChallanges solutions
+ *
+ * @author Keith Wedinger <br>
+ * Created On: 1/19/18
+ */
 public class CoderByteChallenges {
     public String letterChanges(String input) {
         final ArrayList<Character> lowerCaseVowelList = new ArrayList<>(Arrays.asList('a', 'e', 'i', 'o', 'u'));
