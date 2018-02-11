@@ -2,6 +2,7 @@ package com.keithwedinger;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 
 /**
  * Java version of CoderByteChallanges solutions
@@ -34,6 +35,18 @@ public class CoderByteChallenges {
         }
 
         return new String(changedChars);
+    }
+
+    public String longestWord(String sen) {
+        String[] words = sen.split(" ");
+        Arrays.sort(words, new Comparator<String>() {
+            @Override
+            public int compare(String o1, String o2) {
+                return Integer.compare(o1.length(), o2.length());
+            }
+        });
+        return words[words.length - 1];
+
     }
 }
 

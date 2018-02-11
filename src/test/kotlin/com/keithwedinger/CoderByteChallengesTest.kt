@@ -24,4 +24,9 @@ class CoderByteChallengesTest {
         Assertions.assertEquals("gvO Ujnft!", coderByteChallengesKotlin.letterChanges("fun times!"))
     }
 
+    @Test
+    internal fun `longestWord`() {
+        Assertions.assertEquals("sentence", coderByteChallenges.longestWord("this is some sort of sentence"))
+        Assertions.assertEquals("hello", coderByteChallenges.longestWord("hello world"))
+    }
 }
