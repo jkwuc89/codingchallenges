@@ -1,24 +1,18 @@
 buildscript {
     ext {
         apacheCommonsLang3Version = "3.7"
-        gradleVersion = "4.+"
-        junitPluginVersion = "1.+"
-        junitVersion = "5.+"
+        junitVersion = "5.2+"
         jvmVersion = "1.8"
-        kotlinVersion = "1.+"
+        kotlinVersion = "1.2.+"
     }
 
     repositories {
         mavenCentral()
     }
+
     dependencies {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
-        classpath "org.junit.platform:junit-platform-gradle-plugin:$junitPluginVersion"
     }
-}
-
-task wrapper(type: Wrapper) {
-    gradleVersion = gradleVersion
 }
 
 group 'com.keithwedinger'
@@ -26,12 +20,16 @@ version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
 apply plugin: 'kotlin'
-apply plugin: "org.junit.platform.gradle.plugin"
 
 sourceCompatibility = jvmVersion
 
 repositories {
     mavenCentral()
+}
+
+// Use the JUnit platform to run tests
+test {
+	useJUnitPlatform()
 }
 
 dependencies {
